@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 
 def slurp(fname):
     with open(fname, 'r') as file:
-        return file.read()
+        return file.read().encode('utf-8')
 
 def calculate_offsets(source):
     result = [0]
@@ -35,7 +35,7 @@ def end(node):
         return len(source)
 
 def text(beg, end):
-    return source[beg:end]
+    return source[beg:end].decode('utf-8')
 
 def collect_child_nodes(node):
     result = []
